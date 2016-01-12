@@ -331,7 +331,7 @@ class SeomaticService extends BaseApplicationComponent
                         switch ($entryMeta['seoImageIdSource'])
                         {
                             case 'field':
-                                if (isset($element[$entryMeta['seoImageIdSourceField']]))
+                                if (isset($element[$entryMeta['seoImageIdSourceField']]->first()->id))
                                 {
                                     $entryMeta['seoImageId'] = $element[$entryMeta['seoImageIdSourceField']]->first()->id;
                                 }
