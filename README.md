@@ -57,7 +57,7 @@ These SEO Site Meta settings are used to globally define the Meta for the websit
 
 They are used in combination with the SEO Template Meta settings to generate [JSON-LD](https://developers.google.com/schemas/formats/json-ld?hl=en) microdata, [Dublin Core](http://dublincore.org) core metadata, [Twitter Cards](https://dev.twitter.com/cards/overview), [Facebook OpenGraph](https://developers.facebook.com/docs/sharing/opengraph), and as well as HTML meta tags.
 
-If a no Template Meta exists for a template, the SEO Site Meta is used.
+If no Template Meta exists for a template, the SEO Site Meta is used.
 
 If any fields are left blank in a Template Meta, those fields are pulled from the SEO Site Meta.
 
