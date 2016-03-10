@@ -56,6 +56,7 @@ class SeomaticTwigExtension extends \Twig_Extension
             'truncateStringOnWord' => new \Twig_Filter_Method($this, 'truncateStringOnWord'),
             'encodeEmailAddress' => new \Twig_Filter_Method($this, 'encodeEmailAddress'),
             'extractTextFromMatrix' => new \Twig_Filter_Method($this, 'extractTextFromMatrix'),
+            'getFullyQualifiedUrl' => new \Twig_Filter_Method($this, 'getFullyQualifiedUrl'),
         );
     }
 
@@ -72,6 +73,7 @@ class SeomaticTwigExtension extends \Twig_Extension
             'truncateStringOnWord' => new \Twig_Function_Method($this, 'truncateStringOnWord'),
             'encodeEmailAddress' => new \Twig_Function_Method($this, 'encodeEmailAddress'),
             'extractTextFromMatrix' => new \Twig_Function_Method($this, 'extractTextFromMatrix'),
+            'getFullyQualifiedUrl' => new \Twig_Function_Method($this, 'getFullyQualifiedUrl'),
         );
     }
 
@@ -172,6 +174,18 @@ class SeomaticTwigExtension extends \Twig_Extension
 
         return $result;
     } /* -- extractTextFromMatrix */
+
+/* --------------------------------------------------------------------------------
+    Insure any URL is fully qualified. If the URL does not begin with http://
+    or https://, site URL will be prepended. 
+-------------------------------------------------------------------------------- */
+
+    public function getFullyQualifiedUrl($url)
+    {
+        $result = craft()->seomatic->getFullyQualifiedUrl($url);
+
+        return $result;
+    } /* -- getFullyQualifiedUrl */
 
 /* --------------------------------------------------------------------------------
     Get the current template path

@@ -106,6 +106,18 @@ class SeomaticVariable
         return $result;
     } /* -- extractTextFromMatrix */
 
+/* --------------------------------------------------------------------------------
+    Insure any URL is fully qualified. If the URL does not begin with http://
+    or https://, site URL will be prepended. 
+-------------------------------------------------------------------------------- */
+
+    public function getFullyQualifiedUrl($url)
+    {
+        $result = craft()->seomatic->getFullyQualifiedUrl($url);
+
+        return $result;
+    } /* -- getFullyQualifiedUrl */
+
 /* ================================================================================
     INTERNAL methods for SEOmatic use
 ================================================================================ */
