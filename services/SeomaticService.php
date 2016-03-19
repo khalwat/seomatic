@@ -2025,7 +2025,11 @@ class SeomaticService extends BaseApplicationComponent
 
 /* -- Truncate seoTitle, seoDescription, and seoKeywords to recommended values */
 
-        $shouldTruncate = craft()->config->get("truncateTitleTags", "seomatic");
+        $shouldTruncate = craft()->config->get('truncateTitleTags', 'seomatic');
+        $maxTitleLength = craft()->config->get('maxTitleLength', 'seomatic');
+        $maxDescriptionLength = craft()->config->get('maxDescriptionLength', 'seomatic');
+        $maxKeywordsLength = craft()->config->get('maxKeywordsLength', 'seomatic');
+
         if ($shouldTruncate)
         {
             if ($seomaticSiteMeta['siteSeoTitlePlacement'] == "none")
@@ -2035,10 +2039,10 @@ class SeomaticService extends BaseApplicationComponent
         }
         else
         {
-            $titleLength = 200;
+            $titleLength = $maxTitleLength;
         }
 
-        $vars = array('seoTitle' => $titleLength, 'seoDescription' => 160, 'seoKeywords' => 200);
+        $vars = array('seoTitle' => $titleLength, 'seoDescription' => $maxDescriptionLength, 'seoKeywords' => $maxKeywordsLength);
 
         foreach ($vars as $key => $value)
         {
