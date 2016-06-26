@@ -528,7 +528,7 @@ class SeomaticService extends BaseApplicationComponent
                                 case 'field':
                                     if (isset($element[$entryMeta['seoDescriptionSourceField']]))
                                     {
-                                        $entryMeta['seoDescription'] = $this->getTextFromEntryField($element[$entryMeta['seoDescriptionSourceField']]);
+                                        $entryMeta['seoDescription'] = $this->truncate($this->getTextFromEntryField($element[$entryMeta['seoDescriptionSourceField']]));
                                     }
                                 break;
 
@@ -622,6 +622,20 @@ class SeomaticService extends BaseApplicationComponent
         return $result;
     }
 
+/* --------------------------------------------------------------------------------
+    Truncate text but prevents breaking the string in the middle of a word 
+-------------------------------------------------------------------------------- */
+    public function truncate($string,$length=160,$append="&hellip;") {
+        $string = trim($string);
+
+        if(strlen($string) > $length) {
+            $string = wordwrap($string, $length);
+            $string = explode("\n", $string, 2);
+            $string = $string[0] . $append;
+        }
+
+        return $string;
+    }
 /* --------------------------------------------------------------------------------
     Extract text from a tags field
 -------------------------------------------------------------------------------- */
