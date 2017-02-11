@@ -43,6 +43,7 @@ class Seomatic_SettingsRecord extends BaseRecord
             'googleAnalyticsUID'                => array(AttributeType::String, 'maxLength' => 50, 'default' => ''),
             'googleTagManagerID'                => array(AttributeType::String, 'maxLength' => 50, 'default' => ''),
             'googleAnalyticsSendPageview'       => array(AttributeType::Bool, 'default' => true),
+            'googleAnalyticsAnonymization'      => array(AttributeType::Bool, 'default' => true),
             'googleAnalyticsAdvertising'        => array(AttributeType::Bool, 'default' => false),
             'googleAnalyticsEcommerce'          => array(AttributeType::Bool, 'default' => false),
             'googleAnalyticsEEcommerce'         => array(AttributeType::Bool, 'default' => false),

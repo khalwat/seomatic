@@ -1017,6 +1017,7 @@ class SeomaticController extends BaseController
         $record->googleAnalyticsUID = craft()->request->getPost('googleAnalyticsUID', $record->googleAnalyticsUID);
         $record->googleTagManagerID = craft()->request->getPost('googleTagManagerID', $record->googleTagManagerID);
         $record->googleAnalyticsSendPageview = craft()->request->getPost('googleAnalyticsSendPageview', $record->googleAnalyticsSendPageview);
+        $record->googleAnalyticsAnonymization = craft()->request->getPost('googleAnalyticsAnonymization', $record->googleAnalyticsAnonymization);
         $record->googleAnalyticsAdvertising = craft()->request->getPost('googleAnalyticsAdvertising', $record->googleAnalyticsAdvertising);
         $record->googleAnalyticsEcommerce = craft()->request->getPost('googleAnalyticsEcommerce', $record->googleAnalyticsEcommerce);
         $record->googleAnalyticsEEcommerce = craft()->request->getPost('googleAnalyticsEEcommerce', $record->googleAnalyticsEEcommerce);

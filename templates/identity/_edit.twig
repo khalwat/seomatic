@@ -117,7 +117,15 @@
                         locale: identity.locale,
                     }) }}
 
-                     {{ forms.lightswitchField({
+                    {{ forms.lightswitchField({
+                        label: "IP Anonymization" |t,
+                        instructions: "Anonymize IP addresses sent to Google Analytics by setting the last octet (IPv4) resp. the last 80bits (IPv6) to zero. <a rel='noopener noreferrer' href='https://developers.google.com/analytics/devguides/collection/analyticsjs/ip-anonymization' target='_blank'>Learn More</a>" |t |raw,
+                        id: 'googleAnalyticsAnonymization',
+                        name: 'googleAnalyticsAnonymization',
+                        on: identity.googleAnalyticsAnonymization,
+                    }) }}
+
+                    {{ forms.lightswitchField({
                         label: "Automatically send Google Analytics PageView"|t,
                         instructions: "Controls whether the Google Analytics script automatically sends a PageView to Google Analytics when your pages are loaded" |t |raw,
                         id: 'googleAnalyticsSendPageview',
