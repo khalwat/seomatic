@@ -21,6 +21,9 @@
 {% if seomaticHelper.googleAnalyticsLinker %}
   ga('require', 'linker');
 {% endif %}
+{% if seomaticHelper.googleAnalyticsAnonymization %}
+  ga('set', 'anonymizeIp', true);
+{% endif %}
 {% if seomaticHelper.googleAnalyticsSendPageview %}
   ga('send', 'pageview');
 {% endif %}

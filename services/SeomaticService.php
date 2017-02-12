@@ -1416,6 +1416,7 @@ class SeomaticService extends BaseApplicationComponent
         $identity['googleAnalyticsUID'] = $settings['googleAnalyticsUID'];
         $identity['googleTagManagerID'] = $settings['googleTagManagerID'];
         $identity['googleAnalyticsSendPageview'] = $settings['googleAnalyticsSendPageview'];
+        $identity['googleAnalyticsAnonymization'] = $settings['googleAnalyticsAnonymization'];
         $identity['googleAnalyticsAdvertising'] = $settings['googleAnalyticsAdvertising'];
         $identity['googleAnalyticsEcommerce'] = $settings['googleAnalyticsEcommerce'];
         $identity['googleAnalyticsEEcommerce'] = $settings['googleAnalyticsEEcommerce'];
@@ -2694,6 +2695,7 @@ function parseAsTemplate($templateStr, $element)
         $helper['ownerGoogleAnalyticsUID'] = $identity['googleAnalyticsUID'];
         $helper['ownerGoogleTagManagerID'] = $identity['googleTagManagerID'];
         $helper['googleAnalyticsSendPageview'] = $identity['googleAnalyticsSendPageview'];
+        $helper['googleAnalyticsAnonymization'] = $identity['googleAnalyticsAnonymization'];
         $helper['googleAnalyticsAdvertising'] = $identity['googleAnalyticsAdvertising'];
         $helper['googleAnalyticsEcommerce'] = $identity['googleAnalyticsEcommerce'];
         $helper['googleAnalyticsEEcommerce'] = $identity['googleAnalyticsEEcommerce'];
