@@ -974,14 +974,26 @@ class SeomaticService extends BaseApplicationComponent
                     if (!$imgUrl)
                     {
                         $imgUrl = $image->url;
-                        $openGraph['image'] = $this->getFullyQualifiedUrl($imgUrl);
+                        $ogImgProto = "image";
+
+                        if (preg_match("@^https?://@", $this->getFullyQualifiedUrl($imgUrl))) {
+                            $ogImgProto = "image:secure_url";
+                        }
+                        
+                        $openGraph[$ogImgProto] = $this->getFullyQualifiedUrl($imgUrl);
                         $openGraph['image:type'] = $image->getMimeType();
                         $openGraph['image:width'] = $image->getWidth();
                         $openGraph['image:height'] = $image->getHeight();
                     }
                     else
                     {
-                        $openGraph['image'] = $this->getFullyQualifiedUrl($imgUrl);
+                        $ogImgProto = "image";
+
+                        if (preg_match("@^https?://@", $this->getFullyQualifiedUrl($imgUrl))) {
+                            $ogImgProto = "image:secure_url";
+                        }
+                        
+                        $openGraph[$ogImgProto] = $this->getFullyQualifiedUrl($imgUrl);
                         $openGraph['image:type'] = $image->getMimeType();
                         $openGraph['image:width'] = $image->getWidth($meta['seoFacebookImageTransform']);
                         $openGraph['image:height'] = $image->getHeight($meta['seoFacebookImageTransform']);
