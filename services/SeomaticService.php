@@ -2953,7 +2953,7 @@ function parseAsTemplate($templateStr, $element)
             $title = $seomaticMeta['seoTitle'];
         }
         if (isset($seomaticMeta['twitter']))
-            $seomaticMeta['twitter']['title'] = $titlePrefix . $title . $titleSuffix;
+            $seomaticMeta['twitter']['title'] = !empty($title) ? ($titlePrefix . $title . $titleSuffix) : $seomaticSiteMeta['siteSeoName'];
 
         if (isset($seomaticMeta['og']['title'])) {
             $title = $seomaticMeta['og']['title'];
@@ -2961,7 +2961,7 @@ function parseAsTemplate($templateStr, $element)
             $title = $seomaticMeta['seoTitle'];
         }
         if (isset($seomaticMeta['og']))
-            $seomaticMeta['og']['title'] = $titlePrefix . $title . $titleSuffix;
+            $seomaticMeta['og']['title'] = !empty($title) ? ($titlePrefix . $title . $titleSuffix) : $seomaticSiteMeta['siteSeoName'];
 
 /* -- Truncate seoTitle, seoDescription, and seoKeywords to recommended values */
 
