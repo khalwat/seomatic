@@ -818,18 +818,19 @@ class SeomaticService extends BaseApplicationComponent
             $meta['seoFacebookImageTransform'] = $entryMeta->seoFacebookImageTransform;
             $meta['seoTwitterImageTransform'] = $entryMeta->seoTwitterImageTransform;
 
-            if (isset($entryMeta->seoImageId[0]))
-                $meta['seoImageId'] = $entryMeta->seoImageId;
+            if (isset($entryMeta->seoImageId)) {
+                $meta['seoImageId'] = is_array($entryMeta->seoImageId) ? $entryMeta->seoImageId[0] : $entryMeta->seoImageId;
+            }
             else
                 $meta['seoImageId'] = null;
 
-            if (isset($entryMeta->seoTwitterImageId[0]))
-                $meta['seoTwitterImageId'] = $entryMeta->seoTwitterImageId;
+            if (isset($entryMeta->seoTwitterImageId))
+                $meta['seoTwitterImageId'] = is_array($entryMeta->seoTwitterImageId) ? $entryMeta->seoTwitterImageId[0] : $entryMeta->seoTwitterImageId;
             else
                 $meta['seoTwitterImageId'] = $meta['seoImageId'];
 
-            if (isset($entryMeta->seoFacebookImageId[0]))
-                $meta['seoFacebookImageId'] = $entryMeta->seoFacebookImageId;
+            if (isset($entryMeta->seoFacebookImageId))
+                $meta['seoFacebookImageId'] = is_array($entryMeta->seoFacebookImageId) ? $entryMeta->seoFacebookImageId[0] : $entryMeta->seoFacebookImageId;
             else
                 $meta['seoFacebookImageId'] = $meta['seoImageId'];
 
@@ -1169,6 +1170,13 @@ class SeomaticService extends BaseApplicationComponent
         if ($this->entryMeta && isset($this->entrySeoCommerceVariants) && !empty($this->entrySeoCommerceVariants))
             $seomaticMainEntityOfPage = $this->getProductJSONLD($meta, $identity, $locale, true);
 
+/* -- If seoTwitterImageId or seoFacebookImageId are not set, set them to seoImageId */
+
+        if (!$meta['seoTwitterImageId'])
+            $meta['seoTwitterImageId'] = $meta['seoImageId'];
+        if (!$meta['seoFacebookImageId'])
+            $meta['seoFacebookImageId'] = $meta['seoImageId'];
+
 /* -- Get rid of variables we don't want to expose */
 
         unset($siteMeta['siteSeoImageId']);
@@ -1185,9 +1193,6 @@ class SeomaticService extends BaseApplicationComponent
         unset($meta['seoMainEntityOfPage']);
         unset($meta['twitterCardType']);
         unset($meta['openGraphType']);
-        unset($meta['seoImageId']);
-        unset($meta['seoTwitterImageId']);
-        unset($meta['seoFacebookImageId']);
         unset($meta['seoImageTransform']);
         unset($meta['seoFacebookImageTransform']);
         unset($meta['seoTwitterImageTransform']);
