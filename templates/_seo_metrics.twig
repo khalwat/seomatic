@@ -190,12 +190,12 @@
                     <tr>
                         {% set totalStats = totalStats + 1 %}
                         <td class="text-center">{% if validatorStatus == "Valid" %}{% set totalPassed = totalPassed + 1 %}<span class="goodscore">{{ checkmark |raw }}</span>{% else %}<span class="badscore">{{ xmark |raw }}</span>{% endif %}</td>
-                        <td class="text-left"><strong>WC3 HTML Validity - </strong>WC3 HTML Validator status: {% if validatorStatus == "Valid" %}<span class="goodscore">{% else %}<span class="badscore">{% endif %}{{ validatorStatus }}</span>.  Results: {{ validatorErrors }} errors, {{ validatorWarnings }} warnings.  In addition to being important to ensure that your webpage displays properly, HTML validity can also affect web crawler's ability to parse and index your pages.  <a href="{{ validatorUrl }}" target="_blank">Learn More</a></td>
+                        <td class="text-left"><strong>W3C HTML Validity - </strong>W3C HTML Validator status: {% if validatorStatus == "Valid" %}<span class="goodscore">{% else %}<span class="badscore">{% endif %}{{ validatorStatus }}</span>.  Results: {{ validatorErrors }} errors, {{ validatorWarnings }} warnings.  In addition to being important to ensure that your webpage displays properly, HTML validity can also affect web crawler's ability to parse and index your pages.  <a href="{{ validatorUrl }}" target="_blank">Learn More</a></td>
                     </tr>
                 {% else %}
                     <tr>
                         <td class="text-center"><span class="attentionscore">{{ attentionmark |raw }}</span></td>
-                        <td class="text-left"><strong>WC3 HTML Validity - </strong>Unable to determine WC3 HTML validity.  Is this a valid, publicly accessible URL?  <a href="{{ validatorUrl }}" target="_blank">Learn More</a></td>
+                        <td class="text-left"><strong>W3C HTML Validity - </strong>Unable to determine W3C HTML validity.  Is this a valid, publicly accessible URL?  <a href="{{ validatorUrl }}" target="_blank">Learn More</a></td>
                     </tr>
                 {% endif %}
 

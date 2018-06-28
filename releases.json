@@ -271,7 +271,7 @@
             "[Added] Added 'Person' as a type for the Main Entity of Page",
             "[Added] Added Vimeo Handle to Social Media settings",
             "[Added] Added a 'globalMetaOverride' setting to config.php",
-            "[Added] SEOmetrics checks for HTML validity via the WC3 Validator",
+            "[Added] SEOmetrics checks for HTML validity via the W3C Validator",
             "[Added] Added a Score % summary for each SEOmetrics category",
             "[Added] SEOmetrics now includes Google Pagespeed Insights scores and Google Mobile Usability scores",
             "[Added] SEOmetrics checks for SSL encryption via https",
