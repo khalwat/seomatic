@@ -56,6 +56,7 @@ class SeomaticTwigExtension extends \Twig_Extension
             'truncateStringOnWord' => new \Twig_Filter_Method($this, 'truncateStringOnWord'),
             'encodeEmailAddress' => new \Twig_Filter_Method($this, 'encodeEmailAddress'),
             'extractTextFromMatrix' => new \Twig_Filter_Method($this, 'extractTextFromMatrix'),
+            'extractTextFromNeo' => new \Twig_Filter_Method($this, 'extractTextFromNeo'),
             'getLocalizedUrls' => new \Twig_Filter_Method($this, 'getLocalizedUrls'),
             'getFullyQualifiedUrl' => new \Twig_Filter_Method($this, 'getFullyQualifiedUrl'),
         );
@@ -74,6 +75,7 @@ class SeomaticTwigExtension extends \Twig_Extension
             'truncateStringOnWord' => new \Twig_Function_Method($this, 'truncateStringOnWord'),
             'encodeEmailAddress' => new \Twig_Function_Method($this, 'encodeEmailAddress'),
             'extractTextFromMatrix' => new \Twig_Function_Method($this, 'extractTextFromMatrix'),
+            'extractTextFromNeo' => new \Twig_Function_Method($this, 'extractTextFromNeo'),
             'getLocalizedUrls' => new \Twig_Function_Method($this, 'getLocalizedUrls'),
             'getFullyQualifiedUrl' => new \Twig_Function_Method($this, 'getFullyQualifiedUrl'),
         );
@@ -177,6 +179,17 @@ class SeomaticTwigExtension extends \Twig_Extension
 
         return $result;
     } /* -- extractTextFromMatrix */
+
+/* --------------------------------------------------------------------------------
+    Extract all of the text and rich text from the fields in NeoBlockModels
+-------------------------------------------------------------------------------- */
+
+    public function extractTextFromNeo($neoBlocks)
+    {
+        $result = craft()->seomatic->extractTextFromNeo($neoBlocks);
+
+        return $result;
+    } /* -- extractTextFromNeo */
 
 /* --------------------------------------------------------------------------------
     Returns an array of localized URLs for the current request
