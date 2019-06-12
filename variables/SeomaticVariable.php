@@ -513,6 +513,17 @@ class SeomaticVariable
     } /* -- renderRobotsTemplate */
 
 /* --------------------------------------------------------------------------------
+    Get the site meta record
+-------------------------------------------------------------------------------- */
+
+    public function getSiteMeta($locale=null)
+    {
+        if (!$locale)
+            $locale = craft()->language;
+        return craft()->seomatic->getSiteMeta($locale);
+    } /* -- getSiteMeta */
+
+/* --------------------------------------------------------------------------------
     Get the identity record
 -------------------------------------------------------------------------------- */
 
